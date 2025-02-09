@@ -46,9 +46,9 @@ def defaultBtn(btn):
 one= VBox([widgets.HTML(value="<font size=\"+1\"> 1")],layout=cell)
 
 
-file1 = open("pyfiles/images/aup.PNG", "rb")
+file1 = open("/content/drive/MyDrive/GKDResources/pyfiles/images/aup.PNG", "rb")
 aup = file1.read()
-file2 = open("pyfiles/images/aright.PNG", "rb")
+file2 = open("/content/drive/MyDrive/GKDResources/pyfiles/images/aright.PNG", "rb")
 aright = file2.read()
 file3 = open("pyfiles/images/aupleft.PNG", "rb")
 aupleft = file3.read()
