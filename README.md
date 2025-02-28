@@ -11,4 +11,3 @@ TODO: Finish porting to CoLab
 TODO: Fix pathing issues in Colab
 TODO: Adjust LaTex in magic commands to render in Colab
 TODO: Adjust Quiz titles to display appropriate unit names
-TODO: Verify Table construction
