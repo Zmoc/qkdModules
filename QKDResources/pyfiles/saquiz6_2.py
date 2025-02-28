@@ -24,10 +24,9 @@ q2 = prepareQuestion(
     ["hint 1"],
     '<font size="-1"><b>LHS:&emsp;</b>$|c\cdot V_1|=\left|(5-5i)\cdot\\begin{bmatrix}3\\\\4\\\\-10i\end{bmatrix}\\right|=\sqrt{6250}$ <b>&emsp;RHS:&emsp;</b>$|c|\\times|V_1|=\sqrt{50}\cdot\sqrt{125}=\sqrt{6250}$',
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz6_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 6.2 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.08 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

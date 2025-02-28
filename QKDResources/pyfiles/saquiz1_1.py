@@ -33,10 +33,9 @@ Qbtn_1 = widgets.Button(
     icon="check",
 )
 
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz1_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 1.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q01.01 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

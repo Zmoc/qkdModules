@@ -24,10 +24,9 @@ q2 = prepareQuestion(
     ["hint 1"],
     "$\left|\\begin{matrix}2&3&5\\\\-1&-4&-10\\\\1&-2&-8\end{matrix}\\right|$&emsp;=&emsp;0 &emsp;&emsp;Therefore, the set of vectors are not linearly indepdendent.",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz4_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 5.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.04 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

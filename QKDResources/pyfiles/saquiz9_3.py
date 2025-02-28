@@ -30,10 +30,9 @@ q2 = prepareQuestion(
 )
 # q3 = prepareQuestion("3. Are quantum systems reversible? Why?",["hint 1","hint 2","hint 3","hint 4","hint 5"], "$A^\dagger$&emsp;=&emsp;$\\begin{bmatrix}2&-i\\\\i&1\end{bmatrix}=A$")
 # q4 = prepareQuestion("4. If we \"look\" at a three state system and find it in state 2, then the probability vector representing our knowledge is given by _____________.",["hint 1"], "$B^\dagger$&emsp;=&emsp;$\\begin{bmatrix}1&1+i&2i\\\\1-i&5&-3\\\\-2i&-3&0\end{bmatrix}=B$")
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz9_3 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 9.3 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q03.03 Self Assessment Quiz'),
         widgets.HTML(
             value='<font size="+0">What angle should the middle filter be polarized at so that the screen is:'
         ),

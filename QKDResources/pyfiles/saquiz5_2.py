@@ -24,10 +24,9 @@ q2 = prepareQuestion(
     ["hint 1"],
     "$\left|\\begin{matrix}1&1\\\\1&-1\end{matrix}\\right|$&emsp;=&emsp;-2. &emsp;&emsp;Therefore, the set of vectors is linearly independent, and because the vectors &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;form is invertible, $B_2$ is a basis set for $\mathbb{C}^2$",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz4_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 5.2 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.05 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

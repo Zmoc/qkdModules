@@ -29,10 +29,9 @@ q3 = prepareQuestion(
     ["hint 1", "hint 2", "hint 3", "hint 4", "hint 5"],
     "Thats a goooood question lol",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz7_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 7.2 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.10 Self Assessment Quiz'),
         # widgets.HTML(value="<b><font size=\"-1\"<b>Maybe used for in-class hands-on practice.</b>"),
     ],
     layout=Layout(display="flex_flow", height="100%"),

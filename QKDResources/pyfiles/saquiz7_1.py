@@ -38,10 +38,9 @@ q4 = prepareQuestion(
     ["hint 1"],
     "$B^\dagger$&emsp;=&emsp;$\\begin{bmatrix}1&1+i&2i\\\\1-i&5&-3\\\\-2i&-3&0\end{bmatrix}=B$",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz7_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 7.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.09 Self Assessment Quiz'),
         # widgets.HTML(value="<b><font size=\"-1\"<b>Maybe used for in-class hands-on practice.</b>"),
     ],
     layout=Layout(display="flex_flow", height="100%"),

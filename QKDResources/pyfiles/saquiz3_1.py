@@ -21,11 +21,10 @@ numInputLayout = Layout(width="55px")
 strInputLayout1 = Layout(width="90px")
 strInputLayout2 = Layout(width="130px")
 center = Layout(align_items="center")
-# TODO: Adjust Quiz titles to display appropriate unit names
 # Boxes
 SAQuiz3_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 3.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q01.05 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

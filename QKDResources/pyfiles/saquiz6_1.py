@@ -40,10 +40,9 @@ q2 = prepareQuestion(
     ["hint 1"],
     "<b>LHS = </b>$\left&#60;V_1,V_2\\right&#62;=V_1^\dagger\cdot V_2=(V_2^\dagger\cdot V_1)^\dagger=(\left&#60;V_2,V_1\\right&#62;)^\dagger=\overline{\left&#60;V_2,V_1\\right&#62;}$<b> = RHS</b>",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz6_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 6.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.07 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

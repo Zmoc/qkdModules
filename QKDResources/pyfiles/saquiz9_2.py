@@ -34,10 +34,9 @@ q3 = prepareQuestion(
     'Yes, quantum systems are reversible because the evolution of a quantum system can be  modelled using unitary matrices which can be "inverted" ',
 )
 # q4 = prepareQuestion("4. If we \"look\" at a three state system and find it in state 2, then the probability vector representing our knowledge is given by _____________.",["hint 1"], "$B^\dagger$&emsp;=&emsp;$\\begin{bmatrix}1&1+i&2i\\\\1-i&5&-3\\\\-2i&-3&0\end{bmatrix}=B$")
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz9_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 9.2 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q03.02 Self Assessment Quiz'),
         # widgets.HTML(value="<b><font size=\"-1\"<b>Fill in the blanks:</b>"),
     ],
     layout=Layout(display="flex_flow", height="100%"),

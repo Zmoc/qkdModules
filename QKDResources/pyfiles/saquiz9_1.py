@@ -38,10 +38,9 @@ q4 = prepareQuestion(
     ["hint 1"],
     '<font size="-1"> $\\begin{bmatrix}0\\\\1\\\\0\end{bmatrix}$',
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz9_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 9.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q03.01 Self Assessment Quiz'),
         widgets.HTML(value='<b><font size="-1"<b>Fill in the blanks:</b>'),
     ],
     layout=Layout(display="flex_flow", height="100%"),

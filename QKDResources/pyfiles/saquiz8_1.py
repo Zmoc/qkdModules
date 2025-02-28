@@ -29,10 +29,9 @@ q2 = prepareQuestion(
     ["hint 1"],
     '<font size="-1">$\\begin{bmatrix}2+3i\\\\10-4i\end{bmatrix}\otimes\\begin{bmatrix}4\\\\-1+i\end{bmatrix}$&emsp;=&emsp;$\\begin{bmatrix}(2+3i)\cdot\\begin{bmatrix}4\\\\-1+i\end{bmatrix}\\\\(10-4i)\cdot\\begin{bmatrix}4\\\\-1+i\end{bmatrix}\end{bmatrix}$&emsp;=&emsp;$\\begin{bmatrix}8+12i\\\\-5-i\\\\40-16i\\\\-6+14i\end{bmatrix}$',
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz8_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 8.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.11 Self Assessment Quiz'),
         # widgets.HTML(value="<b><font size=\"-1\"<b>Maybe used for in-class hands-on practice.</b>"),
     ],
     layout=Layout(display="flex_flow", height="100%"),

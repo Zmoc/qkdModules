@@ -19,11 +19,10 @@ center = Layout(align_items="center")
 hidden = Layout(visibility="hidden")
 
 matrixlayout = Layout(display="flex", align_items="stretch", width="100%")
-# TODO: Adjust Quiz titles to display appropriate unit names
 # Boxes
 SAQuiz4_1 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 4.1 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.01 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

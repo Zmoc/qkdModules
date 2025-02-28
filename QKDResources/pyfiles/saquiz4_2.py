@@ -29,10 +29,9 @@ q3 = prepareQuestion(
     ["hint 1", "hint 2", "hint 3"],
     "<b>LHS =</b> $(A+B)^\dagger$&emsp;=&emsp;$(\overline{A+B})^T$&emsp;=&emsp;$(\overline{A}+\overline{B})^T$&emsp;=&emsp;$\overline{A}^T+\overline{B}^T$&emsp;=&emsp;$A^\dagger+B^\dagger$<b> = RHS</b>",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz4_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 4.2 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.02 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),

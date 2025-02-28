@@ -29,10 +29,9 @@ q3 = prepareQuestion(
     ["hint 1", "hint 2", "hint 3"],
     "$c\cdot(A\cdot B) $&emsp;=&emsp;$ (c\cdot A)\cdot B $&emsp;=&emsp;$ A\cdot(c\cdot B)$&emsp;=&emsp;$\\begin{bmatrix}-10-80i& 90-60i\\\\110-80i& 90+120i\end{bmatrix}$",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz4_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 4.3 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.03 Self Assessment Quiz'),
         # widgets.HTML(value="<b><font size=\"-1\"<b>Maybe used for in-class hands-on practice.</b>"),
     ],
     layout=Layout(display="flex_flow", height="100%"),

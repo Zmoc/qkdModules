@@ -29,10 +29,9 @@ q3 = prepareQuestion(
     ["hint 1"],
     "$\\frac{1}{\sqrt{2}}$&emsp;$\\begin{bmatrix}1&1\\\\1&-1\end{bmatrix}$&emsp;$\cdot$&emsp;$\\frac{1}{\sqrt{2}}$&emsp;$\\begin{bmatrix}1&1\\\\1&-1\end{bmatrix}$&emsp;=&emsp;$\\begin{bmatrix}1&0\\\\0&1\end{bmatrix}$",
 )
-# TODO: Adjust Quiz titles to display appropriate unit names
 SAQuiz4_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Quiz 5.3 Self Assessment Quiz'),
+        widgets.HTML(value='<b><font size="+2">Q02.06 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),
