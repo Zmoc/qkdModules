@@ -1,7 +1,8 @@
 import cmath
 import random
 
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+from IPython.display import Math, display
+from ipywidgets import Box, Button, HBox, Label, Layout, Output, VBox, interact, widgets
 
 # Layouts
 from QKDResources.pyfiles.helpermethods import (
@@ -40,15 +41,30 @@ Qbtn_2 = widgets.Button(
     tooltip="Check Answers",
     icon="check",
 )
+
+Q1_output = Output()
+Q2_output = Output()
+Q3_output = Output()
+Q4_output = Output()
+with Q1_output:
+    display(Math(r"1.\ \text{Solve for } x \text{ where } x^2 + 2x + 10 = 0."))
+with Q2_output:
+    display(
+        Math(
+            r"\text{Let } c_1 = 2 + 50i \text{ and } c_2 = 3 + 0.5i. \text{ Compute the following:}"
+        )
+    )
+    display(Math(r"2.\ c_1 + c_2"))
+with Q3_output:
+    display(Math(r"3.\ c_1 \times c_2"))
+with Q4_output:
+    display(Math(r"4.\ 7 \times c_2"))
+
 SAQuiz1_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Q01.02 Self Assessment Quiz'),
-        widgets.HTML(
-            value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
-        ),
-        widgets.HTMLMath(
-            value='<font size="+1">1. Solve for $x$, where $x^2+2x+10=0$.'
-        ),
+        Label("Q01.02 Self Assessment Quiz"),
+        Label("May be used for in-class hands-on practice."),
+        Q1_output,
         HBox(
             [
                 qstr1_2_1,
@@ -58,17 +74,11 @@ SAQuiz1_2 = VBox(
                 QLabel2_1,
             ]
         ),
-        Label(),
-        widgets.HTMLMath(
-            value='<font size="+1">Let $c_1=2+50i$ and $c_2=3+0.5i$, compute the following:'
-        ),
-        widgets.HTMLMath(value='<font size="+0">2. $c_1+c_2$'),
+        Q2_output,
         HBox([qstr1_2_3, QValid2_2, QLabel2_2]),
-        Label(),
-        widgets.HTMLMath(value='<font size="+0">3. $c_1$ &#10005; $c_2$'),
+        Q3_output,
         HBox([qstr1_2_4, QValid2_3, QLabel2_3]),
-        Label(),
-        widgets.HTMLMath(value='<font size="+0">4. $7$ &#10005; $c_2$'),
+        Q4_output,
         HBox([qstr1_2_5, QValid2_4, QLabel2_4]),
         VBox([HBox([Qbtn_2])], layout=Layout(align_items="center")),
     ]
