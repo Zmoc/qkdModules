@@ -1,9 +1,16 @@
 import cmath
 import random
 
-# Layouts
-from helpermethods import empty, qcorrect, qformaterror, qincorrect, qunknownerror
 from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+
+# Layouts
+from QKDResources.pyfiles.helpermethods import (
+    empty,
+    qcorrect,
+    qformaterror,
+    qincorrect,
+    qunknownerror,
+)
 
 numInputLayout = Layout(width="55px")
 strInputLayout1 = Layout(width="90px")
