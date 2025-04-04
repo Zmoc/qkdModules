@@ -1,66 +1,98 @@
-import cmath
-import random
+import matplotlib.pyplot as plt
+from IPython.display import Math, display
+from ipywidgets import Button, Dropdown, HBox, Label, Layout, Output, Valid, VBox
 
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+plt.close("all")
 
-# Layouts
-numInputLayout = Layout(width="55px")
-strInputLayout = Layout(width="90px")
-
-
+# Layout Configurations
 hidden = Layout(visibility="hidden")
 visible = Layout(visibility="visible")
-QValid1_1 = widgets.Valid(value=False, readout="Incorrect", layout=hidden)
-QValid1_2 = widgets.Valid(value=False, readout="Incorrect", layout=hidden)
 
-QButtons1_1 = widgets.RadioButtons(
-    options=["a. x=5i", "b. x=-5i", "c. x=i", "d. x=5"],
-    # value='pineapple',
-    description="",
-    disabled=False,
+# Validity Indicators
+QValid1_1 = Valid(value=False, readout="Incorrect", layout=hidden)
+QValid1_2 = Valid(value=False, readout="Incorrect", layout=hidden)
+
+# Question Text
+Q1_output = Output()
+Q2_output = Output()
+with Q1_output:
+    display(Math(r"1.\ \text{Solve for } x \text{ where } x^2 + 25 = 0."))
+with Q2_output:
+    display(Math(r"2.\ \text{Simplify } i^{225}. \text{ (Hint: find a pattern)}"))
+
+# Answer Selection Dictionary
+selected_answer = {"value": None}
+
+# LaTeX Answer Buttons
+answer_choices = [
+    (r"a.\ x = 5i", "a"),
+    (r"b.\ x = -5i", "b"),  # Correct Answer
+    (r"c.\ x = i", "c"),
+    (r"d.\ x = 5", "d"),
+]
+
+
+def select_answer(ans, btn):
+    """Updates the selected answer and highlights the chosen button."""
+    selected_answer["value"] = ans
+    for b in answer_buttons:
+        b.button_style = "primary" if b == btn else ""  # Highlight selected
+
+
+answer_buttons = [
+    Button(
+        description="",
+        layout=Layout(width="25px", height="25px", padding="0px", border_radius="50%"),
+        button_style="",
+    )
+    for _ in answer_choices
+]
+
+answer_outputs = [Output() for _ in answer_choices]
+
+for btn, (text, value), out in zip(answer_buttons, answer_choices, answer_outputs):
+    with out:
+        display(Math(text))
+    btn.on_click(lambda b, v=value, btn=btn: select_answer(v, btn))
+
+QButtons1_1 = HBox(
+    [
+        HBox([btn, out], layout=Layout(align_items="center", margin="2px"))
+        for btn, out in zip(answer_buttons, answer_outputs)
+    ]
 )
-QDropdown1_2 = widgets.Dropdown(
-    options={"1": 1, "-1": 2, " i": 3, "-i": 4},
+
+# Dropdown Answer Choices for Q2
+QDropdown1_2 = Dropdown(
+    options={"1": 1, "-1": 2, "i": 3, "-i": 4},
     value=1,
     description="----->",
 )
 
-Qbtn_1 = widgets.Button(
+# Check Answers Button
+Qbtn_1 = Button(
     description="Check Answers",
     disabled=False,
-    button_style="success",  # 'success', 'info', 'warning', 'danger' or ''
+    button_style="success",
     tooltip="Check Answers",
     icon="check",
 )
 
-SAQuiz1_1 = VBox(
-    [
-        widgets.HTML(value='<b><font size="+2">Q01.01 Self Assessment Quiz'),
-        widgets.HTML(
-            value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
-        ),
-        widgets.HTMLMath(
-            value='<font size="+0">1. Solve for $x$ where $x^2+25=0$. Choose the right answer:'
-        ),
-        HBox([QButtons1_1, QValid1_1]),
-        widgets.HTMLMath(
-            value='<font size="+0">2. Simplify $i^{225}$. (Hint: find a pattern)'
-        ),
-        HBox([QDropdown1_2, QValid1_2]),
-        VBox([HBox([Qbtn_1])], layout=Layout(align_items="center")),
-    ]
-)
 
-
+# Answer Checking Logic
 def QCheckAnswers_1(btn):
     count = 0
-    if QButtons1_1.value[0] == "a":
+
+    # Check first answer
+    if selected_answer["value"] == "b":
         QValid1_1.value = True
         QValid1_1.readout = "Correct"
         count += 1
     else:
         QValid1_1.value = False
         QValid1_1.readout = "Incorrect"
+
+    # Check second answer
     if QDropdown1_2.value == 3:
         QValid1_2.value = True
         QValid1_2.readout = "Correct"
@@ -68,21 +100,33 @@ def QCheckAnswers_1(btn):
     else:
         QValid1_2.value = False
         QValid1_2.readout = "Incorrect"
-    if count == 2:
-        Qbtn_1.button_style = "info"
-        Qbtn_1.description = "Way to Go!"
-        Qbtn_1.icon = "check"
-    if count == 1:
-        Qbtn_1.button_style = "warning"
-        Qbtn_1.icon = "times"
-        Qbtn_1.description = "Close!"
-    if count == 0:
-        Qbtn_1.button_style = "danger"
-        Qbtn_1.icon = "times"
-        Qbtn_1.description = "Try Again"
+
+    # Update Button Styles
+    styles = {
+        2: ("info", "Way to Go!"),
+        1: ("warning", "Close!"),
+        0: ("danger", "Try Again"),
+    }
+    Qbtn_1.button_style, Qbtn_1.description = styles[count]
+    Qbtn_1.icon = "check" if count == 2 else "times"
+
     QValid1_1.layout = visible
     QValid1_2.layout = visible
-    Qbtn_1.icon
 
 
 Qbtn_1.on_click(QCheckAnswers_1)
+
+# Final Layout
+SAQuiz1_1 = VBox(
+    [
+        Label("Q01.01 Self Assessment Quiz"),
+        Label("Maybe used for in-class hands-on practice."),
+        Q1_output,
+        HBox([QButtons1_1, QValid1_1]),
+        Q2_output,
+        HBox([QDropdown1_2, QValid1_2]),
+        VBox([Qbtn_1], layout=Layout(align_items="center")),
+    ]
+)
+
+display(SAQuiz1_1)
