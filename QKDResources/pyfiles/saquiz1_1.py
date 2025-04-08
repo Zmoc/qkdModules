@@ -128,5 +128,3 @@ SAQuiz1_1 = VBox(
         VBox([Qbtn_1], layout=Layout(align_items="center")),
     ]
 )
-
-display(SAQuiz1_1)

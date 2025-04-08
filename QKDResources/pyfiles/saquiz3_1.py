@@ -2,8 +2,11 @@ import cmath
 import math
 import random
 
-from complexgraph import createGraph, setGraph
-from helpermethods import (
+from IPython.display import Math, display
+from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+
+from QKDResources.pyfiles.complexgraph import createGraph, setGraph
+from QKDResources.pyfiles.helpermethods import (
     buttonsuccess,
     checkComplex,
     checkfloat,
@@ -14,7 +17,6 @@ from helpermethods import (
     newfloatbox,
     newPolar,
 )
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
 
 # Layouts
 numInputLayout = Layout(width="55px")

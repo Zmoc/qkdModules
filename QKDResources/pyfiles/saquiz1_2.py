@@ -4,9 +4,9 @@ import random
 from IPython.display import Math, display
 from ipywidgets import Box, Button, HBox, Label, Layout, Output, VBox, interact, widgets
 
-# Layouts
 from QKDResources.pyfiles.helpermethods import (
     empty,
+    getComplex,
     qcorrect,
     qformaterror,
     qincorrect,
@@ -34,14 +34,6 @@ qstr1_2_3 = widgets.Text(placeholder="a + bi", disabled=False, layout=strInputLa
 qstr1_2_4 = widgets.Text(placeholder="a + bi", disabled=False, layout=strInputLayout2)
 qstr1_2_5 = widgets.Text(placeholder="a + bi", disabled=False, layout=strInputLayout2)
 
-Qbtn_2 = widgets.Button(
-    description="Check Answers",
-    disabled=False,
-    button_style="success",  # 'success', 'info', 'warning', 'danger' or ''
-    tooltip="Check Answers",
-    icon="check",
-)
-
 Q1_output = Output()
 Q2_output = Output()
 Q3_output = Output()
@@ -60,6 +52,14 @@ with Q3_output:
 with Q4_output:
     display(Math(r"4.\ 7 \times c_2"))
 
+Qbtn_2 = widgets.Button(
+    description="Check Answers",
+    disabled=False,
+    button_style="success",  # 'success', 'info', 'warning', 'danger' or ''
+    tooltip="Check Answers",
+    icon="check",
+)
+
 SAQuiz1_2 = VBox(
     [
         Label("Q01.02 Self Assessment Quiz"),
@@ -68,7 +68,7 @@ SAQuiz1_2 = VBox(
         HBox(
             [
                 qstr1_2_1,
-                widgets.HTML(value='<b><font size="-1"<b>and</b>'),
+                Label("and"),
                 qstr1_2_2,
                 QValid2_1,
                 QLabel2_1,
@@ -83,21 +83,6 @@ SAQuiz1_2 = VBox(
         VBox([HBox([Qbtn_2])], layout=Layout(align_items="center")),
     ]
 )
-"""
-def fliponchar(strings,char):
-    if strings.count(char) > 1 or strings.count(char) == 0:
-        return ""
-    strarr = strings.split(char)
-    return strarr[1]+char+strarr[0]
-"""
-
-
-def getComplex(textin):
-    complexvalue = str(textin)
-    complexvalue = complexvalue.replace(" ", "")
-    complexvalue = complexvalue.replace("i", "j")
-    complexvalue = complexvalue.replace("+-", "-")
-    return complex(complexvalue)
 
 
 def QCheckAnswers_1(btn):
@@ -120,6 +105,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_1, QLabel2_1)
     except:
         qunknownerror(QValid2_1, QLabel2_1)
+
     try:
         if getComplex(qstr1_2_3.value) == (5 + 50.5j):
             qcorrect(QValid2_2, QLabel2_2)
@@ -130,6 +116,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_2, QLabel2_2)
     except:
         qunknownerror(QValid2_2, QLabel2_2)
+
     try:
         if getComplex(qstr1_2_4.value) == (-19 + 151j):
             qcorrect(QValid2_3, QLabel2_3)
@@ -140,6 +127,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_3, QLabel2_3)
     except:
         qunknownerror(QValid2_3, QLabel2_3)
+
     try:
         if getComplex(qstr1_2_5.value) == (21 + 3.5j):
             qcorrect(QValid2_4, QLabel2_4)
@@ -150,6 +138,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_4, QLabel2_4)
     except:
         qunknownerror(QValid2_4, QLabel2_4)
+
     if qstr1_2_1.value == "" or qstr1_2_2.value == "":
         empty(QValid2_1, QLabel2_1)
     if qstr1_2_3.value == "":
@@ -158,6 +147,7 @@ def QCheckAnswers_1(btn):
         empty(QValid2_3, QLabel2_3)
     if qstr1_2_5.value == "":
         empty(QValid2_4, QLabel2_4)
+
     if count == 4:
         Qbtn_2.button_style = "info"
         Qbtn_2.description = "Way to Go!"
