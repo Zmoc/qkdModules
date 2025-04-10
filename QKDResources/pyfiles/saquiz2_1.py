@@ -7,8 +7,14 @@ from ipywidgets import Box, Button, HBox, Label, Layout, Output, VBox, interact,
 from QKDResources.pyfiles.helpermethods import (
     buttonsuccess,
     checkComplex,
+    empty,
+    getComplex,
     makeButton,
     newfillblank,
+    qcorrect,
+    qformaterror,
+    qincorrect,
+    qunknownerror,
 )
 
 # Layouts
@@ -42,6 +48,14 @@ with Q2_output:
 with Q3_output:
     display(Math(r"3.\ \text{Calculate: }\frac{c_2}{c_1}"))
 
+Qbtn_2_1 = widgets.Button(
+    description="Check Answers",
+    disabled=False,
+    button_style="success",  # 'success', 'info', 'warning', 'danger' or ''
+    tooltip="Check Answers",
+    icon="check",
+)
+
 # Boxes
 SAQuiz2_1 = VBox(
     [
@@ -54,48 +68,67 @@ SAQuiz2_1 = VBox(
         HBox([q_str2, q_valid2, q_label2]),
         Q3_output,
         HBox([q_str3, q_valid3, q_label3]),
+        VBox([HBox([Qbtn_2_1])], layout=Layout(align_items="center")),
     ],
-    layout=Layout(display="flex_flow", height="100%"),
 )
 
 
 # Logic
 def QCheckAnswers2_1(btn):
     count = 0
-    for q in qlist2_1:
-        count += checkComplex(q[1].value, complex(q[0]), q[3], q[4])
-    buttonsuccess(Qbtn2_1, count, 3, 2)
+    try:
+        if getComplex(q_str1.value) == (-13 + 59j):
+            qcorrect(q_valid1, q_label1)
+            count += 1
+        else:
+            qincorrect(q_valid1, q_label1)
+    except ValueError as error:
+        qformaterror(q_valid1, q_label1)
+    except:
+        qunknownerror(q_valid1, q_label1)
 
+    try:
+        if getComplex(q_str2.value) == (0.75 - 1j):
+            qcorrect(q_valid2, q_label2)
+            count += 1
+        else:
+            qincorrect(q_valid2, q_label2)
+    except ValueError as error:
+        qformaterror(q_valid2, q_label2)
+    except:
+        qunknownerror(q_valid2, q_label2)
 
-def createQuiz2_1():
-    display(SAQuiz2_1)
-    display(widgets.HTMLMath(value='<font size="+1">'))
-    qlist2_1.append(
-        newfillblank("1. Compute: $c_1$ &#10005; $c_2$", 0, -13 + 59j, strInputLayout2)
-    )
-    qlist2_1.append(
-        newfillblank(
-            "2. Calculate: <sup>${c_1}$</sup>&frasl;<sub>${c_3}$</sub> ",
-            0,
-            0.75 - 1j,
-            strInputLayout2,
-        )
-    )
-    qlist2_1.append(
-        newfillblank(
-            "3. Resolve: <sup>${c_2}$</sup>&frasl;<sub>${c_1}$</sub> ",
-            0,
-            2.12 + 1.16j,
-            strInputLayout2,
-        )
-    )
-    for q in qlist2_1:
-        display(q[2])
-        display(HBox([q[1], q[3], q[4]]))
-    display(VBox([Qbtn2_1], layout=center))
+    try:
+        if getComplex(q_str3.value) == (2.12 + 1.16j):
+            qcorrect(q_valid3, q_label3)
+            count += 1
+        else:
+            qincorrect(q_valid3, q_label3)
+    except ValueError as error:
+        qformaterror(q_valid3, q_label3)
+    except:
+        qunknownerror(q_valid3, q_label3)
+
+    if q_str1.value == "":
+        empty(q_valid1, q_label1)
+    if q_str2.value == "":
+        empty(q_valid2, q_label2)
+    if q_str3.value == "":
+        empty(q_valid3, q_label3)
+
+    if count == 3:
+        Qbtn_2_1.button_style = "info"
+        Qbtn_2_1.description = "Way to Go!"
+        Qbtn_2_1.icon = "check"
+    if count == 2:
+        Qbtn_2_1.button_style = "warning"
+        Qbtn_2_1.icon = "times"
+        Qbtn_2_1.description = "Close!"
+    if count < 1:
+        Qbtn_2_1.button_style = "danger"
+        Qbtn_2_1.icon = "times"
+        Qbtn_2_1.description = "Try Again"
 
 
 # Events
-Qbtn2_1 = makeButton()
-qlist2_1 = []
-Qbtn2_1.on_click(QCheckAnswers2_1)
+Qbtn_2_1.on_click(QCheckAnswers2_1)
