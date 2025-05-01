@@ -1,7 +1,7 @@
 import cmath
 import random
 
-from helpermethods import (
+from QKDResources.pyfiles.helpermethods import (
     buttonsuccess,
     checkComplex,
     makeButton,

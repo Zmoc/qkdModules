@@ -1,4 +1,4 @@
-from helpermethods import makeQuestion, makeQuestionBig, prepareQuestion, qonclick
+from QKDResources.pyfiles.helpermethods import makeQuestion, makeQuestionBig, prepareQuestion, qonclick
 from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
 
 #

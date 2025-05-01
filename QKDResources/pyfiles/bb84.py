@@ -4,7 +4,7 @@ import random
 import time
 
 import ipywidgets as widgets
-from helpermethods import makeButton, notfound
+from QKDResources.pyfiles.helpermethods import makeButton, notfound
 from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
 
 border = Layout(border="solid 1px", width="100%")
@@ -51,31 +51,31 @@ def defaultBtn(btn):
 one = VBox([widgets.HTML(value='<font size="+1"> 1')], layout=cell)
 
 
-file1 = open("drive/MyDrive/GKDResources/pyfiles/images/aup.png", "rb")
+file1 = open("QKDResources/pyfiles/images/aup.png", "rb")
 aup = file1.read()
-file2 = open("drive/MyDrive/GKDResources/pyfiles/images/aright.png", "rb")
+file2 = open("QKDResources/pyfiles/images/aright.png", "rb")
 aright = file2.read()
-file3 = open("drive/MyDrive/GKDResources/pyfiles/images/aupleft.png", "rb")
+file3 = open("QKDResources/pyfiles/images/aupleft.png", "rb")
 aupleft = file3.read()
-file4 = open("drive/MyDrive/GKDResources/pyfiles/images/aupright.png", "rb")
+file4 = open("QKDResources/pyfiles/images/aupright.png", "rb")
 aupright = file4.read()
 # file5 = open("pyfiles/images/giftest.gif", "rb")
-file5 = open("drive/MyDrive/GKDResources/pyfiles/images/ulx.png", "rb")
+file5 = open("QKDResources/pyfiles/images/ulx.png", "rb")
 # tempimg = file5.read()
 ulx = file5.read()
-file6 = open("drive/MyDrive/GKDResources/pyfiles/images/ult.png", "rb")
+file6 = open("QKDResources/pyfiles/images/ult.png", "rb")
 ult = file6.read()
-file7 = open("drive/MyDrive/GKDResources/pyfiles/images/ux.png", "rb")
+file7 = open("QKDResources/pyfiles/images/ux.png", "rb")
 ux = file7.read()
-file8 = open("drive/MyDrive/GKDResources/pyfiles/images/ut.png", "rb")
+file8 = open("QKDResources/pyfiles/images/ut.png", "rb")
 ut = file8.read()
-file9 = open("drive/MyDrive/GKDResources/pyfiles/images/urx.png", "rb")
+file9 = open("QKDResources/pyfiles/images/urx.png", "rb")
 urx = file9.read()
-file10 = open("drive/MyDrive/GKDResources/pyfiles/images/urt.png", "rb")
+file10 = open("QKDResources/pyfiles/images/urt.png", "rb")
 urt = file10.read()
-file11 = open("drive/MyDrive/GKDResources/pyfiles/images/lx.png", "rb")
+file11 = open("QKDResources/pyfiles/images/lx.png", "rb")
 lx = file11.read()
-file12 = open("drive/MyDrive/GKDResources/pyfiles/images/lt.png", "rb")
+file12 = open("QKDResources/pyfiles/images/lt.png", "rb")
 lt = file12.read()
 
 # arr = os.listdir()
