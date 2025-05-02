@@ -1,7 +1,3 @@
-"""
-This is an example of a self quiz thing. Run the block to generate.
-"""
-
 import cmath
 import random
 

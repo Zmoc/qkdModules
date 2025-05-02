@@ -1,16 +1,9 @@
-import cmath
-import random
-
 from IPython.display import Math, display
-from ipywidgets import Box, Button, HBox, Label, Layout, Output, VBox, interact, widgets
+from ipywidgets import HBox, Label, Layout, Output, VBox, widgets
 
 from QKDResources.pyfiles.helpermethods import (
-    buttonsuccess,
-    checkComplex,
     empty,
     getComplex,
-    makeButton,
-    newfillblank,
     qcorrect,
     qformaterror,
     qincorrect,
