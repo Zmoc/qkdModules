@@ -48,15 +48,11 @@ def createQuiz2_2():
             value='<font size="+1">Compute to the nearest hundredth the modulus for the following complex numbers.'
         )
     )
-    qlist2_2_1.append(newfloatbox("1. $c$ = 3+1$i$", 0, math.sqrt(10), strInputLayout2))
-    qlist2_2_1.append(
-        newfloatbox("2. $c$ = 1+21$i$", 0, math.sqrt(442), strInputLayout2)
-    )
-    qlist2_2_1.append(
-        newfloatbox("3. $c$ = 10+10$i$", 0, math.sqrt(200), strInputLayout2)
-    )
-    qlist2_2_1.append(newfloatbox("4. $c$ = 5.3", 0, 5.3, strInputLayout2))
-    qlist2_2_1.append(newfloatbox("5. $c$ = 5-7$i$", 0, math.sqrt(74), strInputLayout2))
+    qlist2_2_1.append(newfloatbox(r"1.\ c = 3+1i", math.sqrt(10), strInputLayout2))
+    qlist2_2_1.append(newfloatbox(r"2.\ c = 1+21i", math.sqrt(442), strInputLayout2))
+    qlist2_2_1.append(newfloatbox("3.\ c = 10+10i", math.sqrt(200), strInputLayout2))
+    qlist2_2_1.append(newfloatbox("4.\ c = 5.3", 5.3, strInputLayout2))
+    qlist2_2_1.append(newfloatbox("5.\ c = 5-7i", math.sqrt(74), strInputLayout2))
     for q in qlist2_2_1:
         display(q[2])
         display(HBox([q[1], q[3], q[4]]))
@@ -65,9 +61,9 @@ def createQuiz2_2():
             value='<font size="+1">Compute the conjugate for the following complex numbers.'
         )
     )
-    qlist2_2_2.append(newfillblank("1. $c$ = -101$i$", 0, 101j, strInputLayout1))
-    qlist2_2_2.append(newfillblank("2. $c$ = 20+1$i$", 0, 20 - 1j, strInputLayout1))
-    qlist2_2_2.append(newfillblank("3. $c$ = -1+441$i$", 0, -1 + 441j, strInputLayout1))
+    qlist2_2_2.append(newfillblank("1.\ c = -101i", 101j, strInputLayout1))
+    qlist2_2_2.append(newfillblank("2.\ c = 20+1i", 20 - 1j, strInputLayout1))
+    qlist2_2_2.append(newfillblank("3.\ c = -1+441i", -1 + 441j, strInputLayout1))
     for q in qlist2_2_2:
         display(q[2])
         display(HBox([q[1], q[3], q[4]]))
