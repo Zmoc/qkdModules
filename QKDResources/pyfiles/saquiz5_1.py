@@ -15,14 +15,14 @@ def q3onClick(btn):
 
 
 q1 = prepareQuestion(
-    "1. $\\begin{bmatrix}1\\\\1\\\\0\end{bmatrix}$, $\\begin{bmatrix}1\\\\2\\\\-1\end{bmatrix}$, $\\begin{bmatrix}1\\\\0\\\\1\end{bmatrix}$<br><br>",
+    r"1.\ \begin{bmatrix}1\\1\\0\end{bmatrix}, \begin{bmatrix}1\\2\\-1\end{bmatrix}, \begin{bmatrix}1\\0\\1\end{bmatrix}",
     ["hint 1", "hint 2", "hint 3", "hint 4", "hint 5"],
-    "  $\left|\\begin{matrix}1&1&1\\\\1&2&0\\\\0&-1&1\end{matrix}\\right|$&emsp;=&emsp;0 &emsp;&emsp;Therefore, the set of vectors are not linearly indepdendent.",
+    r"\left|\begin{matrix}1&1&1\\1&2&0\\0&-1&1\end{matrix}\right|= 0 \text{ Therefore, the set of vectors are not linearly indepdendent.}",
 )
 q2 = prepareQuestion(
-    "2. $\\begin{bmatrix}2\\\\-1\\\\1\end{bmatrix}$, $\\begin{bmatrix}3\\\\-4\\\\-2\end{bmatrix}$, $\\begin{bmatrix}5\\\\-10\\\\-8\end{bmatrix}$",
+    r"2.\ \begin{bmatrix}2\\-1\\1\end{bmatrix}, \begin{bmatrix}3\\-4\\-2\end{bmatrix}, \begin{bmatrix}5\\-10\\-8\end{bmatrix}",
     ["hint 1"],
-    "$\left|\\begin{matrix}2&3&5\\\\-1&-4&-10\\\\1&-2&-8\end{matrix}\\right|$&emsp;=&emsp;0 &emsp;&emsp;Therefore, the set of vectors are not linearly indepdendent.",
+    r"\left|\begin{matrix}2&3&5\\-1&-4&-10\\1&-2&-8\end{matrix}\right|= 0 \text{ Therefore, the set of vectors are not linearly indepdendent.}",
 )
 SAQuiz4_2 = VBox(
     [
