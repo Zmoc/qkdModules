@@ -1,5 +1,6 @@
 from QKDResources.pyfiles.helpermethods import makeQuestion, prepareQuestion, qonclick
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets, Output
+from IPython.display import display, Math
 
 
 def q1onClick(btn):
@@ -15,26 +16,36 @@ def q3onClick(btn):
 
 
 q1 = prepareQuestion(
-    "1. $(A+B)^T = A^T+B^T$",
+    r"1.\ (A+B)^T = A^T+B^T",
     ["hint 1", "hint 2", "hint 3", "hint 4", "hint 5"],
-    "$(A+B)^T $&emsp;=&emsp;$ A^T+B^T$&emsp;=&emsp;$\\begin{bmatrix}i& 3+11i\\\\2+5i&6-10i\end{bmatrix}$",
+    r"(A+B)^T = A^T+B^T = \begin{bmatrix}i& 3+11i\\2+5i&6-10i\end{bmatrix}",
 )
 q2 = prepareQuestion(
-    "2. $\overline{A+B}=\overline{A}+\overline{B}$",
+    r"2.\ \overline{A+B}=\overline{A}+\overline{B}",
     ["hint 1"],
-    "$\overline{A+B}=\overline{A}+\overline{B}$&emsp;=&emsp;$\\begin{bmatrix}-i&2-5i\\\\3-11i&6+10i\end{bmatrix}$",
+    r"\overline{A+B}=\overline{A}+\overline{B} = \begin{bmatrix}-i&2-5i\\3-11i&6+10i\end{bmatrix}",
 )
 q3 = prepareQuestion(
-    "3. $(A+B)^\dagger = A^\dagger+B^\dagger$",
+    r"3.\ (A+B)^\dagger = A^\dagger+B^\dagger",
     ["hint 1", "hint 2", "hint 3"],
-    "<b>LHS =</b> $(A+B)^\dagger$&emsp;=&emsp;$(\overline{A+B})^T$&emsp;=&emsp;$(\overline{A}+\overline{B})^T$&emsp;=&emsp;$\overline{A}^T+\overline{B}^T$&emsp;=&emsp;$A^\dagger+B^\dagger$<b> = RHS</b>",
+    r"LHS = (A+B)^\dagger = (\overline{A+B})^T  =  (\overline{A}+\overline{B})^T  =  \overline{A}^T+\overline{B}^T = A^\dagger+B^\dagger = RHS",
 )
+
+intro_output = Output()
+with intro_output:
+    display(
+        Math(
+            r"\text{Given } A = \begin{bmatrix}1+i&2\\-3&1-i\end{bmatrix} \text{ and } B = \begin{bmatrix}-1&5i\\6+11i&5-9i\end{bmatrix}, \text{verify the following properties numerically:}"
+        )
+    )
+
 SAQuiz4_2 = VBox(
     [
         widgets.HTML(value='<b><font size="+2">Q02.02 Self Assessment Quiz'),
         widgets.HTML(
             value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
         ),
+        intro_output,
     ],
     layout=Layout(display="flex_flow", height="100%"),
 )
@@ -42,11 +53,6 @@ SAQuiz4_2 = VBox(
 
 def createQuiz4_2():
     display(SAQuiz4_2)
-    display(
-        widgets.HTMLMath(
-            value='<font size="+1">Given $A=\\begin{bmatrix}1+i&2\\\\-3&1-i\end{bmatrix}$ and $B=\\begin{bmatrix}-1&5i\\\\6+11i&5-9i\end{bmatrix}$, verify the following properties numerically,'
-        )
-    )
     makeQuestion(q1, q1onClick)
     makeQuestion(q2, q2onClick)
     makeQuestion(q3, q3onClick)

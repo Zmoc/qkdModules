@@ -291,7 +291,7 @@ def checkfloatpair(answer1, answer2, key, validcheck, labeltoreturn):
 Questions with hints
 """
 
-hiddenanswer = '<font size="+3"> (Answer Hidden)'
+hiddenanswer = r"(Answer Hidden)"
 
 
 def createButton(string, style, icons):
@@ -309,15 +309,24 @@ def createButton(string, style, icons):
 
 # Compatable with math inputs
 def prepareQuestion(questionIn, hintsIn, answerIn):
-    currout = widgets.HTMLMath(value='<font size="+0">&emsp;' + hiddenanswer)
+    question_output = Output()
+    with question_output:
+        display(Math(questionIn))
+
+    current_output = Output()
+    with current_output:
+        display(Math(hiddenanswer))
+
+    currout = current_output
+
     # create each box and their interactions
     priorhint = createButton("Previous Hint", "", "")
     nexthint = createButton("Next Hint", "", "")
     answer = createButton("Show Answer", "info", "check")
     priorhint.disabled = True
-    question = widgets.HTMLMath(value='<font size="+0">&emsp;' + questionIn)
+    question = question_output
     hintcount = widgets.HTML(value=" ")
-    # Print it out (we could also return it)
+
     return [
         question,
         currout,
@@ -364,11 +373,7 @@ def printQuesion(question, size):
                 ),
             ),
             HBox(
-                [
-                    # question[4],
-                    # question[5],
-                    question[6]
-                ],
+                [question[6]],
                 layout=Layout(width="75%"),
             ),
         ],
@@ -402,7 +407,9 @@ def qonclick(btn, q):
             q[1].value = q[2][q[7]]
             q[8].value = "Hint " + str(q[7] + 1) + " of " + str(len(q[2]))
     if btn.description[:1] == "S":
-        q[1].value = '<font size="+0">&emsp;' + q[3]
+        q[1].clear_output()
+        with q[1]:
+            display(Math(q[3]))
         q[8].value = " "
         q[6].description = "Hide Answer"
         q[6].button_style = "danger"
@@ -410,7 +417,9 @@ def qonclick(btn, q):
 
     elif btn.description[:1] == "H":
         if q[7] == -1:
-            q[1].value = hiddenanswer
+            q[1].clear_output()
+            with q[1]:
+                display(Math(hiddenanswer))
         else:
             q[1].value = q[2][q[7]]
             q[8].value = "Hint " + str(q[7] + 1) + " of " + str(len(q[2]))
