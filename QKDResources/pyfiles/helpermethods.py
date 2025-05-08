@@ -63,7 +63,10 @@ def newfloatbox(question, answer, layouttouse):
     return [answer, textBox, qtoreturn, validcheck, labeltoreturn]
 
 
-def newCordBox(question, fontsize, answer, layouttouse):
+def newCordBox(question, answer, layouttouse):
+    qoutput = Output()
+    with qoutput:
+        display(Math(question))
     textBox = widgets.FloatText(
         placeholder="answer", disabled=False, layout=layouttouse
     )
@@ -71,14 +74,15 @@ def newCordBox(question, fontsize, answer, layouttouse):
         placeholder="answer", disabled=False, layout=layouttouse
     )
     validcheck = widgets.Valid(value=False, readout="Incorrect", layout=hidden)
-    qtoreturn = widgets.HTMLMath(
-        value='<font size="+' + str(fontsize) + '">' + question
-    )
+    qtoreturn = qoutput
     labeltoreturn = widgets.HTML(value="")
     return [answer, textBox, textBox2, qtoreturn, validcheck, labeltoreturn]
 
 
-def newPolar(question, fontsize, answer, layouttouse):
+def newPolar(question, answer, layouttouse):
+    qoutput = Output()
+    with qoutput:
+        display(Math(question))
     textBox = widgets.FloatText(
         placeholder="answer", disabled=False, layout=layouttouse
     )
@@ -98,9 +102,7 @@ def newPolar(question, fontsize, answer, layouttouse):
     floatslider.style.handle_color = random.choice(colors)
 
     validcheck = widgets.Valid(value=False, readout="Incorrect", layout=hidden)
-    qtoreturn = widgets.HTMLMath(
-        value='<font size="+' + str(fontsize) + '">' + question
-    )
+    qtoreturn = qoutput
     labeltoreturn = widgets.HTML(value="")
     return [answer, textBox, floatslider, qtoreturn, validcheck, labeltoreturn]
 

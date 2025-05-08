@@ -3,7 +3,7 @@ import math
 import random
 
 from IPython.display import Math, display
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets, Output
 
 from QKDResources.pyfiles.complexgraph import createGraph, setGraph
 from QKDResources.pyfiles.helpermethods import (
@@ -28,7 +28,7 @@ SAQuiz3_1 = VBox(
     [
         widgets.HTML(value='<b><font size="+2">Q01.05 Self Assessment Quiz'),
         widgets.HTML(
-            value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
+            value='<b><font size="-1"<b>May be used for in-class hands-on practice.</b>'
         ),
     ],
     layout=Layout(display="flex_flow", height="100%"),
@@ -91,17 +91,21 @@ def createQuiz3_1():
         )
     )
 
+    qlist3_1_3.append(newPolar("a.\ c = 1+i", [math.sqrt(2), 45], strInputLayout1))
     qlist3_1_3.append(
-        newPolar("a. $c$ = 1+$i$", 0, [math.sqrt(2), 45], strInputLayout1)
+        newPolar("b.\ c = 21+48i", [math.sqrt(2745), 66.37], strInputLayout1)
     )
     qlist3_1_3.append(
-        newPolar("b. $c$ = 21+48$i$", 0, [math.sqrt(2745), 66.37], strInputLayout1)
-    )
-    qlist3_1_3.append(
-        newPolar("c. $c$ = 3-45$i$", 0, [math.sqrt(2034), 273.81], strInputLayout1)
+        newPolar("c.\ c = 3-45i", [math.sqrt(2034), 273.81], strInputLayout1)
     )
     count = 0
     for q in qlist3_1_3:
+        rho_output = Output()
+        with rho_output:
+            display(Math(r"\rho = "))
+        theta_output = Output()
+        with theta_output:
+            display(Math(r"\theta = "))
         temp = widgets.Button(
             description="Graph It",
             disabled=False,
@@ -115,13 +119,9 @@ def createQuiz3_1():
         display(
             HBox(
                 [
-                    Label(
-                        value="$\\rho$ $=$",
-                    ),
+                    rho_output,
                     q[1],
-                    Label(
-                        value=",$\\theta$ =",
-                    ),
+                    theta_output,
                     q[2],
                     temp,
                     q[4],
@@ -136,17 +136,23 @@ def createQuiz3_1():
     )
     qlist3_1_2.append(
         newCordBox(
-            "a. $\\rho=25$ and $\\theta=60^\\circ$", 0, [12.5, 21.65], numInputLayout
+            r"a.\ \rho=25 \text{ and } \theta=60^\circ",
+            [12.5, 21.65],
+            numInputLayout,
         )
     )
     qlist3_1_2.append(
         newCordBox(
-            "b. $\\rho=15$ and $\\theta=45^\\circ$", 0, [10.61, 10.61], numInputLayout
+            r"b.\ \rho=15 \text{ and } \theta=45^\circ",
+            [10.61, 10.61],
+            numInputLayout,
         )
     )
     qlist3_1_2.append(
         newCordBox(
-            "c. $\\rho=45$ and $\\theta=30^\\circ$", 0, [38.97, 22.5], numInputLayout
+            r"c.\ \rho=45 \text{ and } \theta=30^\circ",
+            [38.97, 22.5],
+            numInputLayout,
         )
     )
     count = 0
@@ -182,12 +188,11 @@ def createQuiz3_1():
         )
     )
     qlist3_1_1.append(
-        newPolar("a. $c_1$=1+2$i$ and $c_2$=4$i$", 0, [8.94, 140.4], strInputLayout1)
+        newPolar(r"a.\ c_1=1+2i \text{ and } c_2=4i", [8.94, 140.4], strInputLayout1)
     )
     qlist3_1_1.append(
         newPolar(
-            "b. $c_1$=2-4$i$ and $c_2$=3-2$i$",
-            0,
+            r"b.\ c_1=2-4i \text{ and } c_2=3-2i",
             [math.sqrt(2034), -97.13],
             strInputLayout1,
         )
@@ -207,13 +212,9 @@ def createQuiz3_1():
         display(
             HBox(
                 [
-                    Label(
-                        value="$\\rho$ $=$",
-                    ),
+                    rho_output,
                     q[1],
-                    Label(
-                        value=",$\\theta$ =",
-                    ),
+                    theta_output,
                     q[2],
                     temp,
                     q[4],
