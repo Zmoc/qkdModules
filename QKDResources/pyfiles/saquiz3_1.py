@@ -87,16 +87,16 @@ def createQuiz3_1():
     display(SAQuiz3_1)
     display(
         widgets.HTMLMath(
-            value='<font size="+1">1. Convert the following into polar representations.'
+            value='<font size="+1">Convert the following into polar representations.'
         )
     )
 
-    qlist3_1_3.append(newPolar("a.\ c = 1+i", [math.sqrt(2), 45], strInputLayout1))
+    qlist3_1_3.append(newPolar("1.\ c = 1+i", [math.sqrt(2), 45], strInputLayout1))
     qlist3_1_3.append(
-        newPolar("b.\ c = 21+48i", [math.sqrt(2745), 66.37], strInputLayout1)
+        newPolar("2.\ c = 21+48i", [math.sqrt(2745), 66.37], strInputLayout1)
     )
     qlist3_1_3.append(
-        newPolar("c.\ c = 3-45i", [math.sqrt(2034), 273.81], strInputLayout1)
+        newPolar("3.\ c = 3-45i", [math.sqrt(2034), 273.81], strInputLayout1)
     )
     count = 0
     for q in qlist3_1_3:
@@ -131,26 +131,26 @@ def createQuiz3_1():
         )
     display(
         widgets.HTMLMath(
-            value='<font size="+1">2. Convert the following polar representations into cartesian representations.'
+            value='<font size="+1">Convert the following polar representations into cartesian representations.'
         )
     )
     qlist3_1_2.append(
         newCordBox(
-            r"a.\ \rho=25 \text{ and } \theta=60^\circ",
+            r"4.\ \rho=25 \text{ and } \theta=60^\circ",
             [12.5, 21.65],
             numInputLayout,
         )
     )
     qlist3_1_2.append(
         newCordBox(
-            r"b.\ \rho=15 \text{ and } \theta=45^\circ",
+            r"5.\ \rho=15 \text{ and } \theta=45^\circ",
             [10.61, 10.61],
             numInputLayout,
         )
     )
     qlist3_1_2.append(
         newCordBox(
-            r"c.\ \rho=45 \text{ and } \theta=30^\circ",
+            r"6.\ \rho=45 \text{ and } \theta=30^\circ",
             [38.97, 22.5],
             numInputLayout,
         )
@@ -184,15 +184,15 @@ def createQuiz3_1():
         )
     display(
         widgets.HTMLMath(
-            value='<font size="+1">3. Multiply the following using polar representations.'
+            value='<font size="+1">Multiply the following using polar representations.'
         )
     )
     qlist3_1_1.append(
-        newPolar(r"a.\ c_1=1+2i \text{ and } c_2=4i", [8.94, 140.4], strInputLayout1)
+        newPolar(r"7.\ c_1=1+2i \text{ and } c_2=4i", [8.94, 140.4], strInputLayout1)
     )
     qlist3_1_1.append(
         newPolar(
-            r"b.\ c_1=2-4i \text{ and } c_2=3-2i",
+            r"8.\ c_1=2-4i \text{ and } c_2=3-2i",
             [math.sqrt(2034), -97.13],
             strInputLayout1,
         )
