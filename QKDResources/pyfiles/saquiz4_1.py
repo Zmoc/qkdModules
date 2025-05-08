@@ -9,7 +9,8 @@ from QKDResources.pyfiles.helpermethods import (
     newfillblank,
     newMatrixAdd,
 )
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets, Output
+from IPython.display import display, Math
 
 # Layouts
 numInputLayout = Layout(width="55px")
@@ -19,51 +20,25 @@ center = Layout(align_items="center")
 hidden = Layout(visibility="hidden")
 
 matrixlayout = Layout(display="flex", align_items="stretch", width="100%")
+
+intro_output = Output()
+with intro_output:
+    display(
+        Math(
+            r"\text{Let } c_1=2+7i, c_2=1-5i, \text{ and } X= \begin{bmatrix}5i\\5-1i\\7+10i\end{bmatrix} \text{ and } Y= \begin{bmatrix}-2i\\3+5i\\12\end{bmatrix}"
+        )
+    )
+
 # Boxes
 SAQuiz4_1 = VBox(
     [
         widgets.HTML(value='<b><font size="+2">Q02.01 Self Assessment Quiz'),
         widgets.HTML(
-            value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
+            value='<b><font size="-1"<b>May be used for in-class hands-on practice.</b>'
         ),
+        intro_output,
     ],
     layout=Layout(display="flex_flow", height="100%"),
-)
-
-boxThing = widgets.Text(
-    placeholder="a + bi", disabled=False, layout=strInputLayout2, description="$a =$"
-)
-test = widgets.HTML(value='<font size="+1">a=')
-
-exampleQ = HBox(
-    [
-        VBox(
-            [Label(), widgets.HTMLMath(value='<font size="+0">&emsp;&emsp;A. $X+Y$ = ')]
-        ),
-        widgets.HTMLMath(
-            value='<font size="+0">&emsp; $\\begin{bmatrix}a\\\\b\\\\c\end{bmatrix}$'
-        ),
-        VBox(
-            [
-                HBox(
-                    [Label(value="use correct format")],
-                    layout=Layout(justify_content="center"),
-                ),
-                HBox(
-                    [
-                        boxThing,
-                        boxThing,
-                        boxThing,
-                        widgets.Valid(
-                            value=False,
-                            readout="Incorrect",
-                        ),
-                    ]
-                ),
-            ]
-        ),
-    ],
-    layout=matrixlayout,
 )
 
 
@@ -77,40 +52,32 @@ def QCheckAnswers4_1(btn):
 
 def createQuiz4_1():
     display(SAQuiz4_1)
-    display(
-        widgets.HTMLMath(
-            value='<font size="+1">Let $c_1=2+7i$, $c_2=1-5i$ and $X=\\begin{bmatrix}5i\\\\5-1i\\\\7+10i\end{bmatrix}$ and $Y=\\begin{bmatrix}-2i\\\\3+5i\\\\12\end{bmatrix}$'
-        )
-    )
     display(widgets.HTML(value='<font size="+2">1. Compute the following.'))
     qlist4_1_1.append(
         newMatrixAdd(
-            "$X+Y$",
-            0,
+            r"X+Y",
             [3j, 8 + 4j, 19 + 10j],
             strInputLayout2,
             3,
-            "$\\begin{bmatrix}a\\\\b\\\\c\end{bmatrix}$",
+            r"\begin{bmatrix}a\\b\\c\end{bmatrix}",
         )
     )
     qlist4_1_1.append(
         newMatrixAdd(
-            "$c_1X+c_2Y$",
-            0,
+            r"c_1X+c_2Y",
             [-45 + 8j, 45 + 23j, -44 + 9j],
             strInputLayout2,
             3,
-            "$\\begin{bmatrix}a\\\\b\\\\c\end{bmatrix}$",
+            r"\begin{bmatrix}a\\b\\c\end{bmatrix}",
         )
     )
     qlist4_1_1.append(
         newMatrixAdd(
-            "$X-Y$",
-            0,
+            r"X-Y",
             [7j, 2 - 6j, -5 + 10j],
             strInputLayout2,
             3,
-            "$\\begin{bmatrix}a\\\\b\\\\c\end{bmatrix}$",
+            r"\begin{bmatrix}a\\b\\c\end{bmatrix}",
         )
     )
 
@@ -133,8 +100,6 @@ def createQuiz4_1():
             )
         )
 
-    # display(widgets.HTMLMath(value="<font size=\"+0\">&emsp;&emsp;a. $X+Y$"))
-    # isplay(exampleQ)
     display(VBox([Qbtn4_1], layout=center))
 
 

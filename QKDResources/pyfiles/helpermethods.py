@@ -107,7 +107,15 @@ def newPolar(question, answer, layouttouse):
     return [answer, textBox, floatslider, qtoreturn, validcheck, labeltoreturn]
 
 
-def newMatrixAdd(question, fontsize, answer, layouttouse, numVars, formatbase):
+def newMatrixAdd(question, answer, layouttouse, numVars, formatbase):
+    question_output = Output()
+    with question_output:
+        display(Math(question + r" = "))
+
+    box_output = Output()
+    with box_output:
+        display(Math(formatbase))
+
     alpha = "abcdefghijklmnopqrstuvwxyz"
     textboxes = []
     for i in range(numVars):
@@ -116,15 +124,13 @@ def newMatrixAdd(question, fontsize, answer, layouttouse, numVars, formatbase):
                 placeholder="a + bi",
                 disabled=False,
                 layout=layouttouse,
-                description="$" + alpha[i] + " =$",
+                description=alpha[i] + " =",
             )
         )
     labeltoreturn = widgets.HTML(value="")
     validcheck = widgets.Valid(value=False, readout="Incorrect", layout=hidden)
-    formatbox = widgets.HTMLMath(value='<font size="+0">&emsp; ' + formatbase)
-    qtoreturn = widgets.HTMLMath(
-        value='<font size="+' + str(fontsize) + '">&emsp;&emsp;' + question + " = "
-    )
+    formatbox = box_output
+    qtoreturn = question_output
     return [answer, textboxes, qtoreturn, formatbox, validcheck, labeltoreturn]
 
 
