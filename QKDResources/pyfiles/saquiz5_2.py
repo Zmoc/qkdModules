@@ -1,5 +1,6 @@
 from QKDResources.pyfiles.helpermethods import makeQuestion, prepareQuestion, qonclick
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets, Output
+from IPython.display import display, Math
 
 
 def q1onClick(btn):
@@ -10,37 +11,34 @@ def q2onClick(btn):
     qonclick(btn, q2)
 
 
-def q3onClick(btn):
-    qonclick(btn, q3)
-
-
 q1 = prepareQuestion(
-    "a.&emsp; $B_1$ =&emsp; $\left\{\\begin{bmatrix}1\\\\0\end{bmatrix}, \\begin{bmatrix}0\\\\1\end{bmatrix}\\right\}$",
+    r"a.\ B_1 = \left\{\begin{bmatrix}1\\0\end{bmatrix}, \begin{bmatrix}0\\1\end{bmatrix}\right\}",
     ["hint 1", "hint 2", "hint 3", "hint 4", "hint 5"],
-    "$\\begin{bmatrix}1&0\\\\0&1\end{bmatrix}\\begin{bmatrix}c_1\\\\c_2\end{bmatrix}$&emsp;=&emsp;$\\begin{bmatrix}x\\\\y\end{bmatrix}$&emsp;&emsp;&emsp;&emsp;&emsp;Because we can find the coefficients c1 and c2 for every<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; possible value of x and y; $B_1$ forms a basis for $\mathbb{C}^2$ ",
+    r"\begin{bmatrix}1&0\\0&1\end{bmatrix}\begin{bmatrix}c_1\\c_2\end{bmatrix} = \begin{bmatrix}x\\y\end{bmatrix} \text{Because we can find the coefficients } c_1 \text{ and } c_2 \text{ for every possible value of } x \text{ and } y \text{; } B_1 \text{ forms a basis for }\mathbb{C}^2",
 )
 q2 = prepareQuestion(
-    "b.&emsp; $B_2$ = &emsp;$\left\{\\begin{bmatrix}1\\\\1\end{bmatrix}, \\begin{bmatrix}1\\\\-1\end{bmatrix}\\right\}$",
+    r"b.\ B_2 = \left\{\begin{bmatrix}1\\1\end{bmatrix}, \begin{bmatrix}1\\-1\end{bmatrix}\right\}",
     ["hint 1"],
-    "$\left|\\begin{matrix}1&1\\\\1&-1\end{matrix}\\right|$&emsp;=&emsp;-2. &emsp;&emsp;Therefore, the set of vectors is linearly independent, and because the vectors &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;form is invertible, $B_2$ is a basis set for $\mathbb{C}^2$",
+    r"\left|\begin{matrix}1&1\\1&-1\end{matrix}\right| = -2 \text{ Therefore, the set of vectors is linearly independent, and because the vectors form is invertible, }B_2\text{ is a basis set for }\mathbb{C}^2",
 )
-SAQuiz4_2 = VBox(
+
+intro_output = Output()
+with intro_output:
+    display(Math(r"\text{Verify that the following are basis for }\mathbb{C}^2"))
+
+SAQuiz5_2 = VBox(
     [
         widgets.HTML(value='<b><font size="+2">Q02.05 Self Assessment Quiz'),
         widgets.HTML(
-            value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
+            value='<b><font size="-1"<b>May be used for in-class hands-on practice.</b>'
         ),
+        intro_output,
     ],
     layout=Layout(display="flex_flow", height="100%"),
 )
 
 
 def createQuiz5_2():
-    display(SAQuiz4_2)
-    display(
-        widgets.HTMLMath(
-            value='<font size="+1"> Verify that the following are basis for $\mathbb{C}^2$'
-        )
-    )
+    display(SAQuiz5_2)
     makeQuestion(q1, q1onClick)
     makeQuestion(q2, q2onClick)
