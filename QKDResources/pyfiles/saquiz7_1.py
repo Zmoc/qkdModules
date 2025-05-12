@@ -19,29 +19,28 @@ def q4onClick(btn):
 
 
 q1 = prepareQuestion(
-    "a. $\\begin{bmatrix}2&-4\\\\-1&-1\end{bmatrix}$",
+    r"a.\ \begin{bmatrix}2&-4\\-1&-1\end{bmatrix}",
     ["hint 1", "hint 2", "hint 3", "hint 4", "hint 5"],
-    "<b>Eigenvalues = &emsp;</b>$\lambda=-2$ and $\lambda=3$&emsp;&emsp;<b>Eigenvectors =&emsp; </b> $\\begin{bmatrix}1\\\\1\end{bmatrix}$ and $\\begin{bmatrix}-4\\\\1\end{bmatrix}$",
+    r"\text{Eigenvalues: }\lambda=-2\text{ and }\lambda=3 \text{ Eigenvectors: } \begin{bmatrix}1\\1\end{bmatrix}\text{ and } \begin{bmatrix}-4\\1\end{bmatrix}",
 )
 q2 = prepareQuestion(
-    "b. $\\begin{bmatrix}3&-2\\\\4&-1\end{bmatrix}$",
+    r"b. \begin{bmatrix}3&-2\\4&-1\end{bmatrix}",
     ["hint 1"],
-    "<b>Eigenvalues = &emsp;</b>$\lambda=1+2i$ and $\lambda=1-2i$&emsp;&emsp;<b>Eigenvectors =&emsp; </b> $\\begin{bmatrix}\\frac{1}{2}+i\\frac{1}{2}\\\\1\end{bmatrix}$ and $\\begin{bmatrix}\\frac{1}{2}-i\\frac{1}{2}\\\\1\end{bmatrix}$",
+    r"\text{Eigenvalues: } \lambda=1+2i\text{ and }\lambda=1-2i \text{ Eigenvectors: } \begin{bmatrix}\frac{1}{2}+i\frac{1}{2}\\1\end{bmatrix}\text{ and } \begin{bmatrix}\frac{1}{2}-i\frac{1}{2}\\1\end{bmatrix}",
 )
 q3 = prepareQuestion(
-    "a. $A$&emsp;=&emsp;$\\begin{bmatrix}2&-i\\\\i&1\end{bmatrix}$",
+    r"a.\ A = \begin{bmatrix}2&-i\\i&1\end{bmatrix}",
     ["hint 1", "hint 2", "hint 3", "hint 4", "hint 5"],
-    "$A^\dagger$&emsp;=&emsp;$\\begin{bmatrix}2&-i\\\\i&1\end{bmatrix}=A$",
+    r"A^\dagger = \begin{bmatrix}2&-i\\i&1\end{bmatrix}= A",
 )
 q4 = prepareQuestion(
-    "b. $B$&emsp;=&emsp;$\\begin{bmatrix}1&1+i&2i\\\\1-i&5&-3\\\\-2i&-3&0\end{bmatrix}$",
+    r"b.\ B = \begin{bmatrix}1&1+i&2i\\1-i&5&-3\\-2i&-3&0\end{bmatrix}",
     ["hint 1"],
-    "$B^\dagger$&emsp;=&emsp;$\\begin{bmatrix}1&1+i&2i\\\\1-i&5&-3\\\\-2i&-3&0\end{bmatrix}=B$",
+    r"B^\dagger = \begin{bmatrix}1&1+i&2i\\1-i&5&-3\\-2i&-3&0\end{bmatrix}= B",
 )
 SAQuiz7_1 = VBox(
     [
         widgets.HTML(value='<b><font size="+2">Q02.09 Self Assessment Quiz'),
-        # widgets.HTML(value="<b><font size=\"-1\"<b>Maybe used for in-class hands-on practice.</b>"),
     ],
     layout=Layout(display="flex_flow", height="100%"),
 )
@@ -64,4 +63,3 @@ def createQuiz7_1():
     )
     makeQuestion(q3, q3onClick)
     makeQuestion(q4, q4onClick)
-    # display(widgets.HTMLMath(value="<font size=\"+1\">2. Prove that Hadamard matrix is its own inverse."))
