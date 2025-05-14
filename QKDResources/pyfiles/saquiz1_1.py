@@ -120,7 +120,7 @@ Qbtn_1.on_click(QCheckAnswers_1)
 SAQuiz1_1 = VBox(
     [
         Label("Q01.01 Self Assessment Quiz"),
-        Label("Maybe used for in-class hands-on practice."),
+        Label("May be used for in-class hands-on practice."),
         Q1_output,
         HBox([QButtons1_1, QValid1_1]),
         Q2_output,
@@ -128,5 +128,3 @@ SAQuiz1_1 = VBox(
         VBox([Qbtn_1], layout=Layout(align_items="center")),
     ]
 )
-
-display(SAQuiz1_1)

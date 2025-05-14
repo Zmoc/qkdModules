@@ -1,9 +1,17 @@
 import cmath
 import random
 
-# Layouts
-from helpermethods import empty, qcorrect, qformaterror, qincorrect, qunknownerror
-from ipywidgets import Box, Button, HBox, Label, Layout, VBox, interact, widgets
+from IPython.display import Math, display
+from ipywidgets import Box, Button, HBox, Label, Layout, Output, VBox, interact, widgets
+
+from QKDResources.pyfiles.helpermethods import (
+    empty,
+    getComplex,
+    qcorrect,
+    qformaterror,
+    qincorrect,
+    qunknownerror,
+)
 
 numInputLayout = Layout(width="55px")
 strInputLayout1 = Layout(width="90px")
@@ -26,6 +34,24 @@ qstr1_2_3 = widgets.Text(placeholder="a + bi", disabled=False, layout=strInputLa
 qstr1_2_4 = widgets.Text(placeholder="a + bi", disabled=False, layout=strInputLayout2)
 qstr1_2_5 = widgets.Text(placeholder="a + bi", disabled=False, layout=strInputLayout2)
 
+Q1_output = Output()
+Q2_output = Output()
+Q3_output = Output()
+Q4_output = Output()
+with Q1_output:
+    display(Math(r"1.\ \text{Solve for } x \text{ where } x^2 + 2x + 10 = 0."))
+with Q2_output:
+    display(
+        Math(
+            r"\text{Let } c_1 = 2 + 50i \text{ and } c_2 = 3 + 0.5i. \text{ Compute the following:}"
+        )
+    )
+    display(Math(r"2.\ c_1 + c_2"))
+with Q3_output:
+    display(Math(r"3.\ c_1 \times c_2"))
+with Q4_output:
+    display(Math(r"4.\ 7 \times c_2"))
+
 Qbtn_2 = widgets.Button(
     description="Check Answers",
     disabled=False,
@@ -33,54 +59,30 @@ Qbtn_2 = widgets.Button(
     tooltip="Check Answers",
     icon="check",
 )
+
 SAQuiz1_2 = VBox(
     [
-        widgets.HTML(value='<b><font size="+2">Q01.02 Self Assessment Quiz'),
-        widgets.HTML(
-            value='<b><font size="-1"<b>Maybe used for in-class hands-on practice.</b>'
-        ),
-        widgets.HTMLMath(
-            value='<font size="+1">1. Solve for $x$, where $x^2+2x+10=0$.'
-        ),
+        Label("Q01.02 Self Assessment Quiz"),
+        Label("May be used for in-class hands-on practice."),
+        Q1_output,
         HBox(
             [
                 qstr1_2_1,
-                widgets.HTML(value='<b><font size="-1"<b>and</b>'),
+                Label("and"),
                 qstr1_2_2,
                 QValid2_1,
                 QLabel2_1,
             ]
         ),
-        Label(),
-        widgets.HTMLMath(
-            value='<font size="+1">Let $c_1=2+50i$ and $c_2=3+0.5i$, compute the following:'
-        ),
-        widgets.HTMLMath(value='<font size="+0">2. $c_1+c_2$'),
+        Q2_output,
         HBox([qstr1_2_3, QValid2_2, QLabel2_2]),
-        Label(),
-        widgets.HTMLMath(value='<font size="+0">3. $c_1$ &#10005; $c_2$'),
+        Q3_output,
         HBox([qstr1_2_4, QValid2_3, QLabel2_3]),
-        Label(),
-        widgets.HTMLMath(value='<font size="+0">4. $7$ &#10005; $c_2$'),
+        Q4_output,
         HBox([qstr1_2_5, QValid2_4, QLabel2_4]),
         VBox([HBox([Qbtn_2])], layout=Layout(align_items="center")),
     ]
 )
-"""
-def fliponchar(strings,char):
-    if strings.count(char) > 1 or strings.count(char) == 0:
-        return ""
-    strarr = strings.split(char)
-    return strarr[1]+char+strarr[0]
-"""
-
-
-def getComplex(textin):
-    complexvalue = str(textin)
-    complexvalue = complexvalue.replace(" ", "")
-    complexvalue = complexvalue.replace("i", "j")
-    complexvalue = complexvalue.replace("+-", "-")
-    return complex(complexvalue)
 
 
 def QCheckAnswers_1(btn):
@@ -103,6 +105,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_1, QLabel2_1)
     except:
         qunknownerror(QValid2_1, QLabel2_1)
+
     try:
         if getComplex(qstr1_2_3.value) == (5 + 50.5j):
             qcorrect(QValid2_2, QLabel2_2)
@@ -113,6 +116,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_2, QLabel2_2)
     except:
         qunknownerror(QValid2_2, QLabel2_2)
+
     try:
         if getComplex(qstr1_2_4.value) == (-19 + 151j):
             qcorrect(QValid2_3, QLabel2_3)
@@ -123,6 +127,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_3, QLabel2_3)
     except:
         qunknownerror(QValid2_3, QLabel2_3)
+
     try:
         if getComplex(qstr1_2_5.value) == (21 + 3.5j):
             qcorrect(QValid2_4, QLabel2_4)
@@ -133,6 +138,7 @@ def QCheckAnswers_1(btn):
         qformaterror(QValid2_4, QLabel2_4)
     except:
         qunknownerror(QValid2_4, QLabel2_4)
+
     if qstr1_2_1.value == "" or qstr1_2_2.value == "":
         empty(QValid2_1, QLabel2_1)
     if qstr1_2_3.value == "":
@@ -141,6 +147,7 @@ def QCheckAnswers_1(btn):
         empty(QValid2_3, QLabel2_3)
     if qstr1_2_5.value == "":
         empty(QValid2_4, QLabel2_4)
+
     if count == 4:
         Qbtn_2.button_style = "info"
         Qbtn_2.description = "Way to Go!"
